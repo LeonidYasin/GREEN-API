@@ -24,8 +24,10 @@
     <h2>GREEN-API</h2>
     <div class="container">
         <div class="form">
-            <label for="idInstance">idTokenInstance</label><br>
+            <label for="idInstance">idInstance</label><br>
             <input type="text" id="idInstance" name="idInstance"><br>
+            <label for="apiTokenInstance">ApiTokenInstance</label><br>
+            <input type="text" id="apiTokenInstance" name="apiTokenInstance"><br>
             <button onclick="callGetSettings()">getSettings</button><br>
             <label for="getGeocoding">getGeocoding</label><br>
             <input type="text" id="getGeocoding" name="getGeocoding"><br>
@@ -43,11 +45,13 @@
     <script>
         function callAPI(url) {
             var idInstance = document.getElementById('idInstance').value;
+            var apiTokenInstance = document.getElementById('apiTokenInstance').value;
 
             $.ajax({
                 url: url,
                 headers: {
                     'idInstance': idInstance,
+                    'apiTokenInstance': apiTokenInstance
                 },
                 success: function(data) {
                     document.getElementById('response').textContent = JSON.stringify(data, null, 2);
@@ -72,6 +76,7 @@
     </script>
 </body>
 </html>
+
 
 
 
