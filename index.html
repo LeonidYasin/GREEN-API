@@ -12,7 +12,7 @@
         }
         .response {
             flex: 1; /* Уменьшено в 2 раза по горизонтали */
-            margin-left: 20px;
+            margin-left: 10px; /* Сдвинуто влево */
             border: 2px solid black;
             padding: 10px;
         }
@@ -21,7 +21,7 @@
             height: 400px;
         }
         #messageText {
-            width: 50%; /*  */
+            width: 100%; /* по горизонтали */
             height: 3em; /* Увеличено в 3 раза по вертикали */
         }
     </style>
@@ -82,14 +82,14 @@
         }
 
         function callGetStateInstance() {
-            var apiUrl = 'https://green-api.com/waInstance'; // Замените на реальный URL API
+            var apiUrl = 'https://1103.api.green-api.com/waInstance'; // Замените на реальный URL API
             var idInstance = document.getElementById('idInstance').value;
             var apiTokenInstance = document.getElementById('apiTokenInstance').value;
             callAPI(apiUrl + idInstance + '/getStateInstance/' + apiTokenInstance, 'GET');
         }
 
         function callSendMessage() {
-            var apiUrl = 'https://green-api.com/waInstance'; // Замените на реальный URL API
+            var apiUrl = 'https://1103.api.green-api.com/waInstance'; // Замените на реальный URL API
             var idInstance = document.getElementById('idInstance').value;
             var apiTokenInstance = document.getElementById('apiTokenInstance').value;
             var phoneNumber = document.getElementById('phoneNumber1').value;
@@ -98,7 +98,7 @@
         }
 
         function callSendFileByUrl() {
-            var apiUrl = 'https://green-api.com/waInstance'; // Замените на реальный URL API
+            var apiUrl = 'https://1103.media.green-api.com/waInstance'; // Замените на реальный URL API
             var idInstance = document.getElementById('idInstance').value;
             var apiTokenInstance = document.getElementById('apiTokenInstance').value;
             var phoneNumber = document.getElementById('phoneNumber2').value;
@@ -108,6 +108,7 @@
     </script>
 </body>
 </html>
+
 
 
 
