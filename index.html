@@ -19,16 +19,19 @@
     <input type="text" id="helloWorld" name="helloWorld"><br>
     <input type="text" id="url1" name="url1" placeholder="URL1"><br>
     <input type="text" id="url2" name="url2" placeholder="URL2"><br>
-    <button onclick="callAPI()">Call API</button>
+    <button onclick="callGetSettings()">getSettings</button>
+    <button onclick="callGetStateInstance()">getStateInstance</button>
+    <button onclick="callSendMessage()">sendMessage</button>
+    <button onclick="callSendFileByUrl()">sendFileByUrl</button>
     <pre id="response"></pre>
 
     <script>
-        function callAPI() {
+        function callAPI(url) {
             var idInstance = document.getElementById('idInstance').value;
             var apiTokenInstance = document.getElementById('apiTokenInstance').value;
 
             $.ajax({
-                url: 'https://green-api.com/methods/getSettings',
+                url: url,
                 headers: {
                     'idInstance': idInstance,
                     'apiTokenInstance': apiTokenInstance
@@ -40,10 +43,25 @@
                     document.getElementById('response').textContent = "Произошла ошибка: " + textStatus + ", " + errorThrown;
                 }
             });
+        }
 
-            // Добавьте здесь другие вызовы API
+        function callGetSettings() {
+            callAPI('https://green-api.com/methods/getSettings');
+        }
+
+        function callGetStateInstance() {
+            callAPI('https://green-api.com/methods/getStateInstance');
+        }
+
+        function callSendMessage() {
+            callAPI('https://green-api.com/methods/sendMessage');
+        }
+
+        function callSendFileByUrl() {
+            callAPI('https://green-api.com/methods/sendFileByUrl');
         }
     </script>
 </body>
 </html>
+
 
