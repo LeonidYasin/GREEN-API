@@ -6,10 +6,19 @@
 </head>
 <body>
     <h2>GREEN-API</h2>
-    <label for="idInstance">ID Instance:</label><br>
+    <label for="idInstance">idTokenInstance</label><br>
     <input type="text" id="idInstance" name="idInstance"><br>
-    <label for="apiTokenInstance">API Token Instance:</label><br>
-    <input type="text" id="apiTokenInstance" name="apiTokenInstance"><br>
+    <label for="getGeocoding">getGeocoding</label><br>
+    <input type="text" id="getGeocoding" name="getGeocoding"><br>
+    <label for="getSocialInsurance">getSocialInsurance</label><br>
+    <input type="text" id="getSocialInsurance" name="getSocialInsurance"><br>
+    <input type="text" id="field1" name="field1" placeholder="T7771234567"><br>
+    <input type="text" id="field2" name="field2" placeholder="T7771234567"><br>
+    <input type="text" id="field3" name="field3" placeholder="T7771234567"><br>
+    <label for="helloWorld">Hello World!</label><br>
+    <input type="text" id="helloWorld" name="helloWorld"><br>
+    <input type="text" id="url1" name="url1" placeholder="URL1"><br>
+    <input type="text" id="url2" name="url2" placeholder="URL2"><br>
     <button onclick="callAPI()">Call API</button>
     <pre id="response"></pre>
 
@@ -26,6 +35,9 @@
                 },
                 success: function(data) {
                     document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    document.getElementById('response').textContent = "Произошла ошибка: " + textStatus + ", " + errorThrown;
                 }
             });
 
@@ -34,3 +46,4 @@
     </script>
 </body>
 </html>
+
