@@ -27,11 +27,15 @@
             <label for="idInstance">idTokenInstance</label><br>
             <input type="text" id="idInstance" name="idInstance"><br>
             <button onclick="callGetSettings()">getSettings</button><br>
+            <label for="getGeocoding">getGeocoding</label><br>
+            <input type="text" id="getGeocoding" name="getGeocoding"><br>
             <button onclick="callGetStateInstance()">getStateInstance</button><br>
+            <label for="getSocialInsurance">getSocialInsurance</label><br>
+            <input type="text" id="getSocialInsurance" name="getSocialInsurance"><br>
             <button onclick="callSendMessage()">sendMessage</button><br>
-            <button onclick="callSendFileByUrl()">sendFileByUrl</button><br>
         </div>
         <div class="response">
+            <h3>Ответ</h3>
             <pre id="response"></pre>
         </div>
     </div>
@@ -65,13 +69,10 @@
         function callSendMessage() {
             callAPI('https://green-api.com/methods/sendMessage');
         }
-
-        function callSendFileByUrl() {
-            callAPI('https://green-api.com/methods/sendFileByUrl');
-        }
     </script>
 </body>
 </html>
+
 
 
 
