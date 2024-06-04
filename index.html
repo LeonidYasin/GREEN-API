@@ -3,38 +3,47 @@
 <head>
     <title>GREEN-API</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .container {
+            display: flex;
+        }
+        .form {
+            flex: 1;
+        }
+        .response {
+            flex: 2;
+            margin-left: 20px;
+        }
+        #response {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
     <h2>GREEN-API</h2>
-    <label for="idInstance">idTokenInstance</label><br>
-    <input type="text" id="idInstance" name="idInstance"><br>
-    <label for="getGeocoding">getGeocoding</label><br>
-    <input type="text" id="getGeocoding" name="getGeocoding"><br>
-    <label for="getSocialInsurance">getSocialInsurance</label><br>
-    <input type="text" id="getSocialInsurance" name="getSocialInsurance"><br>
-    <input type="text" id="field1" name="field1" placeholder="T7771234567"><br>
-    <input type="text" id="field2" name="field2" placeholder="T7771234567"><br>
-    <input type="text" id="field3" name="field3" placeholder="T7771234567"><br>
-    <label for="helloWorld">Hello World!</label><br>
-    <input type="text" id="helloWorld" name="helloWorld"><br>
-    <input type="text" id="url1" name="url1" placeholder="URL1"><br>
-    <input type="text" id="url2" name="url2" placeholder="URL2"><br>
-    <button onclick="callGetSettings()">getSettings</button>
-    <button onclick="callGetStateInstance()">getStateInstance</button>
-    <button onclick="callSendMessage()">sendMessage</button>
-    <button onclick="callSendFileByUrl()">sendFileByUrl</button>
-    <pre id="response"></pre>
+    <div class="container">
+        <div class="form">
+            <label for="idInstance">idTokenInstance</label><br>
+            <input type="text" id="idInstance" name="idInstance"><br>
+            <button onclick="callGetSettings()">getSettings</button><br>
+            <button onclick="callGetStateInstance()">getStateInstance</button><br>
+            <button onclick="callSendMessage()">sendMessage</button><br>
+            <button onclick="callSendFileByUrl()">sendFileByUrl</button><br>
+        </div>
+        <div class="response">
+            <pre id="response"></pre>
+        </div>
+    </div>
 
     <script>
         function callAPI(url) {
             var idInstance = document.getElementById('idInstance').value;
-            var apiTokenInstance = document.getElementById('apiTokenInstance').value;
 
             $.ajax({
                 url: url,
                 headers: {
                     'idInstance': idInstance,
-                    'apiTokenInstance': apiTokenInstance
                 },
                 success: function(data) {
                     document.getElementById('response').textContent = JSON.stringify(data, null, 2);
@@ -63,5 +72,6 @@
     </script>
 </body>
 </html>
+
 
 
