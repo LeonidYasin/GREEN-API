@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GREEN-API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>GREEN-API</h2>
+    <label for="idInstance">ID Instance:</label><br>
+    <input type="text" id="idInstance" name="idInstance"><br>
+    <label for="apiTokenInstance">API Token Instance:</label><br>
+    <input type="text" id="apiTokenInstance" name="apiTokenInstance"><br>
+    <button onclick="callAPI()">Call API</button>
+    <pre id="response"></pre>
+
+    <script>
+        function callAPI() {
+            var idInstance = document.getElementById('idInstance').value;
+            var apiTokenInstance = document.getElementById('apiTokenInstance').value;
+
+            $.ajax({
+                url: 'https://green-api.com/methods/getSettings',
+                headers: {
+                    'idInstance': idInstance,
+                    'apiTokenInstance': apiTokenInstance
+                },
+                success: function(data) {
+                    document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+                }
+            });
+
+            // Добавьте здесь другие вызовы API
+        }
+    </script>
+</body>
+</html>
