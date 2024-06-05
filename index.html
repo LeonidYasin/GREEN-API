@@ -127,13 +127,20 @@ class="response">
         }
 
         function callSendFileByUrl() {
-            var apiUrl = 'https://1103.media.green-api.com/waInstance'; // Замените на реальный URL API
-            var idInstance = document.getElementById('idInstance').value;
-            var apiTokenInstance = document.getElementById('apiTokenInstance').value;
-            var phoneNumber = document.getElementById('phoneNumber2').value;
-            var fileUrl = document.getElementById('fileUrl').value;
-            callAPI(apiUrl + idInstance + '/sendFileByUrl/' + apiTokenInstance, 'POST', { phoneNumber: phoneNumber + "@c.us", fileUrl: fileUrl });
-        }
+        var apiUrl = 'https://1103.api.green-api.com/waInstance'; // Замените на реальный URL API
+        var idInstance = document.getElementById('idInstance').value;
+        var apiTokenInstance = document.getElementById('apiTokenInstance').value;
+        var phoneNumber = document.getElementById('phoneNumber2').value;
+        var fileUrl = document.getElementById('fileUrl').value;
+
+        var data = {
+            chatId: phoneNumber + "@c.us",
+            urlFile: fileUrl,
+            fileName: 'stroen.jpg' // Имя файла
+        };
+
+        callAPI(apiUrl + idInstance + '/sendFileByUrl/' + apiTokenInstance, 'POST', data);
+    }
     </script>
 </body>
 </html>
