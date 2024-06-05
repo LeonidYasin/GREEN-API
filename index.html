@@ -111,7 +111,7 @@ class="response">
             var apiTokenInstance = document.getElementById('apiTokenInstance').value;
             var phoneNumber = document.getElementById('phoneNumber1').value;
             var messageText = document.getElementById('messageText').value;
-            callAPI(apiUrl + idInstance + '/sendMessage/' + apiTokenInstance, 'POST', { phoneNumber: phoneNumber, messageText: messageText });
+            callAPI(apiUrl + idInstance + '/sendMessage/' + apiTokenInstance, 'POST', { chatId: phoneNumber + "@c.us", message: messageText });
         }
 
         function callSendFileByUrl() {
