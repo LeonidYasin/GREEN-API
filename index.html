@@ -120,7 +120,7 @@ class="response">
             var apiTokenInstance = document.getElementById('apiTokenInstance').value;
             var phoneNumber = document.getElementById('phoneNumber2').value;
             var fileUrl = document.getElementById('fileUrl').value;
-            callAPI(apiUrl + idInstance + '/sendFileByUrl/' + apiTokenInstance, 'POST', { phoneNumber: phoneNumber, fileUrl: fileUrl });
+            callAPI(apiUrl + idInstance + '/sendFileByUrl/' + apiTokenInstance, 'POST', { phoneNumber: phoneNumber + "@c.us", fileUrl: fileUrl });
         }
     </script>
 </body>
