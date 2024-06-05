@@ -70,26 +70,38 @@ class="response">
     </div>
 
     <script>
-        function callAPI(url, method, data) {
-            var idInstance = document.getElementById('idInstance').value;
-            var apiTokenInstance = document.getElementById('apiTokenInstance').value;
+      function callAPI(url, method, data, isFile = false) {
+    var idInstance = document.getElementById('idInstance').value;
+    var apiTokenInstance = document.getElementById('apiTokenInstance').value;
 
-            $.ajax({
-                url: url,
-                method: method,
-                headers: {
-                    'idInstance': idInstance,
-                    'apiTokenInstance': apiTokenInstance
-                },
-                data: data,
-                success: function(data) {
-                    document.getElementById('response').textContent = JSON.stringify(data, null, 2);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    document.getElementById('response').textContent = "Произошла ошибка: " + textStatus + ", " + errorThrown;
-                }
-            });
+    var settings = {
+        url: url,
+        method: method,
+        headers: {
+            'idInstance': idInstance,
+            'apiTokenInstance': apiTokenInstance
+        },
+        success: function(data) {
+            document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            document.getElementById('response').textContent = "Произошла ошибка: " + textStatus + ", " + errorThrown;
+            console.log("Ошибка в запросе: " + method + " " + url + ", данные: " + JSON.stringify(data));
         }
+    };
+
+    if (isFile) {
+        settings.data = data;
+        settings.processData = false;
+        settings.contentType = false;
+    } else {
+        settings.data = JSON.stringify(data);
+        settings.contentType = 'application/json';
+    }
+
+    $.ajax(settings);
+}
+
 
         function callGetSettings() {
             var apiUrl = 'https://1103.api.green-api.com/waInstance'; // Замените на реальный URL API
